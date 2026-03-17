@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Uuchlalt</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: pink;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #intro {
+      position: absolute;
+      text-align: center;
+    }
+
+    #intro img {
+      width: 280px;
+      border-radius: 20px;
+    }
+
+    #intro h1 {
+      margin-top: 20px;
+      font-size: 36px;
+      color: #ff4d4d;
+    }
+
+    #message {
+      display: none;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #message h1 {
+      font-size: 38px;
+      color: #ff4d4d;
+    }
+
+    #message p {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #28a745;
+      color: white;
+    }
+
+    #no {
+      background: #dc3545;
+      color: white;
+      position: absolute;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="intro">
+    <img src="el-gato-con-botas-puss-in-boots.gif">
+    <h1>Уучлаарай 😭😭😭</h1>
+  </div>
+
+  <div id="message">
+    <h1>Үнэхээр уучлаарай </h1>
+    <p>
+      Чамайг уурлуулсанд уучлаарай 🙏🙏🙏<br>
+      Дахиж ийм алдаа гаргахгүй ээ 💔 эвлэрэе тэгэх үү
+    </p>
+
+    <div class="buttons">
+      <button id="yes" onclick="alert('Баярлалаа ❤️')">Уучилна</button>
+      <button id="no">Уучлахгүй</button>
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("message").style.display = "block";
+    }, 5000);
+
+    const noBtn = document.getElementById("no");
+
+    function moveButton(e) {
+      if (e) e.preventDefault();
+
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = window.innerWidth - btnWidth;
+      const maxY = window.innerHeight - btnHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveButton);
+
+    noBtn.addEventListener("touchstart", moveButton, { passive: false });
+
+    noBtn.addEventListener("click", moveButton);
+  </script>
+
+</body>
+</html>
